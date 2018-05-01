@@ -84,7 +84,15 @@ namespace oxygine
             return *_xmlFolder + rl;
         }
 
+#ifdef OX_RESOURCE_USE_ABSOLUTE_PATH
+        //ignore debug resources
+        if (_xmlFolder->c_str()[0] == '/')
+            return *_xmlFolder + _path + str;
+        else
+            return _path + str;
+#else
         return _path + str;
+#endif
     }
 
     XmlWalker XmlWalker::next()

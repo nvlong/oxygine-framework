@@ -15,7 +15,12 @@
 #include <Windows.h>
 #define LOGD(str) fputs(str, stdout); OutputDebugStringA(str);
 #else
+#if QTCREATOR && OXYGINE_SDL
+#include <SDL.h>
+#define LOGD(str) SDL_Log(str)
+#else
 #define LOGD(str) fputs(str, stdout)
+#endif
 #endif
 #endif
 
@@ -88,7 +93,7 @@ namespace oxygine
         void out_line(char* str, int i)
         {
             out(str);
-#if __ANDROID__
+#if __ANDROID__ || (OXYGINE_SDL && QTCREATOR)
 #else
             out("\n");
 #endif

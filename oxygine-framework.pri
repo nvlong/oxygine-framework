@@ -11,7 +11,8 @@ linux-g++ {
 DEFINES += \
     OXYGINE_SDL \
     OX_NO_HTTP \
-    OX_HAVE_LIBPNG
+    OX_HAVE_LIBPNG \
+    OX_RESOURCE_USE_ABSOLUTE_PATH
 
 debug
 {

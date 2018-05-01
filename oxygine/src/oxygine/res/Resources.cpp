@@ -202,8 +202,10 @@ namespace oxygine
 
         std::string prebuilt_folder = path::normalize(opt._prebuilFolder + "/" + destTail + ".ox/");
 
+#ifndef OX_RESOURCE_USE_ABSOLUTE_PATH
         if (prebuilt_folder[0] == '/')
             prebuilt_folder.erase(prebuilt_folder.begin());
+#endif
 
         file::buffer fb_meta;
         pugi::xml_document doc_meta;
