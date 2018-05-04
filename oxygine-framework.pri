@@ -4,7 +4,10 @@ PKGCONFIG += \
     zlib \
     libpng
 
-linux-g++ {
+contains(QMAKE_HOST.arch, i486|armv7l): {
+    PKGCONFIG += glesv2
+    DEFINES += __SAILFISHOS__
+}else{
     PKGCONFIG += gl
 }
 
